@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntrePáginas | Explorar libros</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <!--Barra lateral de navegación-->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>EntrePáginas</h2>
+            <p>Cada libro nos conecta</p>
+        </div>
+
+        <nav>
+            <a href="../index.html">Inicio</a>
+            <a href="comunidad.html">Notas de la comunidad</a>
+            <a href="explorar.html" class="activo">Explorar libros</a>
+            <a href="clubes.html">Clubes de lectura</a>
+            <a href="biblioteca.html">Biblioteca</a>
+            <a href="calendario.html">Calendario</a>
+            <a href="perfil.html">Mi perfil</a>
+            <a href="acerca.html">Acerca de</a>
+        </nav>
+    </aside>
+
+    <!--Contenido principal-->
+    <main class="contenido">
+        <!--Barra superior-->
+        <header class="tobar">
+            <p>Comunidad / Explorar libros</p>
+            <div class="usuario">
+                <span>Carla López</span>
+            </div>
+        </header>
+
+        <!--Encabezado-->
+        <section class="bienvenida">
+            <h1>Descubre tu próxima historia</h1>
+            <p>Siempre hay un libro esperando por ti</p>
+        </section>
+
+        <!--Buscador-->
+        <section class="busqueda-libros">
+            <h2>¿Qué te gustaría leer?</h2>
+            <form>
+                <input type="text" 
+                id="buscarLibro" 
+                name="buscarLibro"
+                placeholder="Busca por título o autor...">
+                <button type="submit">Buscar</button>
+            </form>
+        </section>
+
+        <!--Categorías-->
+        <section class="categorias">
+            <h2>Explora por géneros</h2>
+            <div class="lista-categorias">
+                <button>Romance</button>
+                <button>Fantasía</button>
+                <button>Misterio</button>
+                <button>Terror</button>
+                <button>Ciencia ficción</button>
+                <button>Drama</button>
+            </div>
+        </section>
+
+        <!--Libros destacados-->
+        <section class="libros-destacados">
+            <h2>Libros que podrían gustarte</h2>
+            <div class="libros">
+                <article class="libro">
+                    <h3>El gato negro</h3>
+                    <p>Edgar Allan Poe</p>
+                    <p>Narra la trágica caída a la locura y al crimen de un hombre apacible consumido por el alcoholismo y la culpa.</p>
+                    <button>Agregar a mi biblioteca</button>
+                </article>
+
+                <article class="libro">
+                    <h3>Divina Comedia</h3>
+                    <p>Dante Alighieri</p>
+                    <p>Poema épico alegórico que narra el viaje del propio autor a través de los tres reinos del más allá cristiano.</p>
+                    <button>Agregar a mi biblioteca</button>
+                </article>
+
+                <article class="libro">
+                    <h3>Cementerio de animales</h3>
+                    <p>Stephen King</p>
+                    <p>Un relato oscuro sobre el duelo y los límites de la vida y la muerte.</p>
+                    <button>Agregar a mi biblioteca</button>
+                </article>
+
+                <article class="libro">
+                    <h3>Coraline</h3>
+                    <p>Neil Gaiman</p>
+                    <p>Una aventura misteriosa detrás de una puerta escondida.</p>
+                    <button>Agregar a mi biblioteca</button>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

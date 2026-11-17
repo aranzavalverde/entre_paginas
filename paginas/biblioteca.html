@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EntrePáginas | Biblioteca</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <!-- Barra lateral de navegación -->
+    <aside class="sidebar">
+        <div class="logo">
+            <h2>EntrePáginas</h2>
+            <p>Cada libro nos conecta</p>
+        </div>
+
+        <nav>
+            <a href="../index.html">Inicio</a>
+            <a href="comunidad.html">Notas de la comunidad</a>
+            <a href="explorar.html">Explorar libros</a>
+            <a href="clubes.html">Clubes de lectura</a>
+            <a href="biblioteca.html" class="activo">Biblioteca</a>
+            <a href="calendario.html">Calendario</a>
+            <a href="perfil.html">Mi perfil</a>
+            <a href="acerca.html">Acerca de</a>
+        </nav>
+    </aside>
+
+    <!-- Contenido principal -->
+    <main class="contenido">
+        <!-- Barra superior -->
+        <header class="topbar">
+            <p>Comunidad / Mi biblioteca</p>
+            <div class="usuario">
+                <span>Carla López</span>
+            </div>
+        </header>
+        
+        <!--Bienvenida-->
+        <section class="bienvenida">
+            <h1>Mi Biblioteca</h1>
+            <p>Todos tus libros, historias y próximas lecturas a tu disposición.</p>
+        </section>
+
+        <!--Resumen de lecturas-->
+        <section class="resumen-biblioteca">
+            <h2>Mi progreso</h2>
+            <div class="estadisticas-libros">
+                <article class="estadistica">
+                    <h3>40</h3>
+                    <p>Libros leídos</p>
+                </article>
+
+                <article class="estadistica">
+                    <h3>1</h3>
+                    <p>Leyendo actualmente</p>
+                </article>
+
+                <article class="estadistica">
+                    <h3>8</h3>
+                    <p>Por leer</p>
+                </article>
+            </div>
+        </section>
+
+        <!--Libros que esté leyendo el usuario-->
+        <section class="mis-lecturas">
+            <h2>Leyendo</h2>
+            <div class="libros">
+                <article class="libro">
+                    <h3>El brillo de las luciérnagas</h3>
+                    <p>Paul Pen</p>
+                    <p>Progreso: 30%</p>
+                </article>
+            </div>
+        </section>
+
+        <!--Libros pendientes-->
+        <section class="libros-pendientes">
+            <h2>Libros pendientes</h2>
+            <div class="libros">
+                <article class="libro">
+                    <h3>La metamorfosis infinita</h3>
+                    <p>Paul Pen</p>
+                    <p>Estado: Pendiente</p>
+                </article>
+
+                <article class="libro">
+                    <h3>Memorias de una Geisha</h3>
+                    <p>Arthur Golden</p>
+                    <p>Estado: Pendiente</p>
+                </article>
+            </div>
+        </section>
+
+        <!--Libros terminados-->
+        <section class="libros-leidos">
+            <h2>Libros leídos</h2>
+            <div class="libros">
+                <article class="libro">
+                    <h3>El amor en los tiempos del cólera</h3>
+                    <p>Gabriel García Márquez</p>
+                    <p>Estado: Completado</p>
+                </article>
+
+                <article class="libro">
+                    <h3>Cien años de soledad</h3>
+                    <p>Gabriel García Márquez</p>
+                    <p>Estado: Completado</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
