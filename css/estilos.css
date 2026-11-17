@@ -1,0 +1,223 @@
+/*CONFIGURACIÓN GENERAL*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F7F3EB;
+    color: #594B43;
+}
+
+/*Barra lateral*/
+.sidebar{
+    width: 250px;
+    height: 100vh;
+    background-color: #DDE5D8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 30px 20px;
+}
+
+.logo h2{
+    font-size: 25px;
+    color: #594B43;
+    margin-bottom: 8px;
+}
+.logo p{
+    font-size: 13px;
+    color: #81746B;
+}
+
+.sidebar nav{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sidebar nav a{
+    text-decoration: none;
+    color: #594B43;
+    padding: 13px 15px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+.sidebar nav a:hover{
+    background-color: #C8D5C2;
+}
+.sidebar nav a.activo{
+    background-color: #F7F3EB;
+    font-weight: bold;
+}
+
+/*Contenido principal*/
+.contenido{
+    margin-left: 250px;
+    padding: 30px;
+}
+
+/*Barra superior*/
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 18px 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 10px rgba(89, 75, 67, 0.06);
+}
+.usuario{
+    font-weight: bold;
+    color: #81746B;
+}
+
+/*Bienvenida*/
+.bienvenida{
+    margin-bottom: 30px;
+}
+.bienvenida h1{
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #594B43;
+}
+.bienvenida p{
+    color: #81746B;
+    font-size: 16px;
+}
+
+/*Banner principal*/
+.banner{
+    background-color: #EBCFD0;
+    padding: 45px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+}
+.banner p{
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+.banner h2{
+    font-size: 29px;
+    margin-bottom: 15px;
+}
+.banner a{
+    display: inline-block;
+    margin top: 15px;
+    padding: 12px 20px;
+    background-color: #594B43;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.banner a:hover{
+    background-color: #81746B;
+}
+
+/*Tarjetas y secciones*/
+section{
+    margin-bottom: 35px;
+}
+section h2{
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+
+.publicacion, .libro, .nota-card, .proposito-card, .funciones-lista article{
+    background-color: #FFFFFF;
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.publicacion h3, .nota-card h3{
+    margin-bottom: 10px;
+}
+.publicacion p, .nota-card p{
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/*Botones*/
+button{
+    border: none;
+    padding: 10px 17px;
+    border-radius: 10px;
+    background-color: #DDE5D8;
+    color: #594B43;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button:hover{
+    background-color: #C8D5C2;
+}
+
+/*Libros y recomendaciones*/
+.libros{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gab: 20px;
+}
+.libro h3{
+    margin-bottom: 10px;
+}
+
+/*Formularios*/
+input, textarea, select{
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #D8C5AC;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    color: #594B43;
+    font-family: inherit;
+    font-size: 14px;
+}
+textarea{
+    resize: vertical;
+    min-height: 110px;
+}
+input:focus, textarea:focus, select:focus{
+    outline: 2px solid #B7C8AE;
+}
+
+/*Diseño responsivo*/
+@media(max-width: 850px){
+    .sidebar{
+        width: 190px;
+        padding: 20px 12px;
+    }
+    .contenido{
+        margin-left: 190px;
+        padding: 20px;
+    }
+    .banner{
+        padding: 30px;
+    }
+}
+
+@media(max-width: 600px){
+    .sidebar{
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+    .sidebar nav{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .contenido{
+        margin-left: 0;
+        padding: 18px;
+    }
+    .topbar{
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .bienvenida h1{
+        font-size: 24px;
+    }
+}
