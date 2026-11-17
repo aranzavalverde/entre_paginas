@@ -221,3 +221,69 @@ input:focus, textarea:focus, select:focus{
         font-size: 24px;
     }
 }
+
+/*COMUNIDAD*/
+.crear-nota{
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 03 12px rgba(89, 75, 67, 0.06);
+}
+.crear-nota h2{
+    margin-bottom: 10px;
+}
+.crear-nota p{
+    color: #81746B;
+    margin-bottom: 20px;
+}
+.crear-nota textarea{
+    min-height: 120px;
+    margin-bottom: 15px;
+}
+.nota-opciones{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+.nota-opciones span{
+    color: #81746B;
+    font-size: 13px;
+}
+.nota-opciones button{
+    background-color: #B7C8AE;
+}
+.nota-opciones button:hover{
+    background-color: #A3B99A;
+}
+.notas-comunidad{
+    margin-top: 35px;
+}
+.nota-card{
+    margin-bottom: 20px;
+}
+.nota-usuario{
+    margin-bottom: 15px;
+}
+.nota-usuario h3{
+    color: #594B43;
+}
+.nota-usuario span{
+    color: #A18F83;
+    font-size: 13px;
+}
+.nota-interaccion{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+.nota-interaccion a{
+    text-decoration: none;
+    color: #81746B;
+    font-size: 14px;
+}
+.nota-interaccion a:hover{
+    color: #B47F86;
+    text-decoration: underline;
+}
