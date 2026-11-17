@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
+    <!--Barra lateral-->
     <aside class="sidebar">
         <div class="logo">
             <h2>EntrePáginas</h2>
@@ -24,17 +25,95 @@
             <a href="acerca.html">Acerca de</a>
         </nav>
     </aside>
+
+    <!--Contenido principal-->
     <main class="contenido">
+        <!--Barra superior-->
         <header class="topbar">
             <p>Comunidad / Notas</p>
         </header>
 
+        <!--Bienvenida-->
         <section class="bienvenida">
             <h1>Notas de la comunidad</h1>
             <p>Ideas, conversaciones y recomendaciones de otros lectores.</p>
         </section>
 
         <!--Espacio para publicar notas-->
+        <section class="crear-nota">
+            <h2>¿Qué estás pensando?</h2>
+            <p>Comparte una idea, una recomendación o algo que quieras conversar.</p>
+
+            <form id="formularioNota">
+                <textarea
+                id="textoNota"
+                name="textoNota"
+                placeholder="Escribe tu nota aquí..."
+                maxlength="250"
+                required>
+                </textarea>
+
+                <div class="nota-opciones">
+                    <span>Comparte hasta 250 caracteres.</span>
+                    <button type="submit">Publicar nota</button>
+                </div>
+            </form>
+        </section>
+
+        <!--Notas de otros lectores-->
+        <section class="notas-comunidad">
+            <h2>Lo que comparte la comunidad</h2>
+            <article class="nota-card">
+                <div class="nota-usuario">
+                    <h3>Kamila Iturralde</h3>
+                    <span>@DullerHarbor</span>
+                </div>
+                <p>Los libros se sienten como viajar a otro mundo.</p>
+
+                <div class="nota-interaccion">
+                    <button type="button">Me gusta</button>
+                    <a href="clubes.html">Conversar con lectores</a>
+                </div>
+            </article>
+
+            <article class="nota-card">
+                <div class="nota-usuario">
+                    <h3>Brisa Peña</h3>
+                    <span>@miopki22</span>
+                </div>
+
+                <p>Necesito recomendaciones de libros de misterio. Quiero una historia que me mantenga pensando hasta el final.</p>
+
+                <div class="nota-interaccion">
+                    <button type="button">Me gusta</button>
+                    <a href="explorar.html">Recomendar un libro</a>
+                </div>
+            </article>
+
+            <article class="nota-card">
+                <div class="nota-usuario">
+                    <h3>Ashley Reyes</h3>
+                    <span>@a5hh.10</span>
+                </div>
+                <p>Mi pequeño reto de esta semana es leer 30 minutos todos los días. ¡A ver si lo consigo!</p>
+                    <div class="nota-interaccion">
+                    <button type="button">Me gusta</button>
+                    <a href="calendario.html">Ver retos de lectura</a>
+                </div>
+            </article>
+
+            <article class="nota-card">
+                <div class="nota-usuario">
+                    <h3>Jimena</h3>
+                    <span>@zles0_</span>
+                </div>
+                <p>¿Alguien más disfruta leer mientras escucha música? Siento que cada historia tiene su propia banda sonora.</p>
+                 <div class="nota-interaccion">
+                    <button type="button">Me gusta</button>
+                    <a href="clubes.html">Unirme a una conversación</a>
+                </div>
+            </article>
+        </section>
     </main>
 
     <script src="../js/script.js"></script>
