@@ -287,3 +287,115 @@ if (document.getElementById("formularioNota")) {
     // Mostrar las notas al entrar
     mostrarNotas();
 }
+
+//EXPLORAR LIBROS//
+if (document.getElementById("buscarLibro")) {
+
+    const buscador = document.getElementById("buscarLibro");
+    const tarjetas = document.querySelectorAll(".libros .libro");
+    const botonesGeneros = document.querySelectorAll(".lista-categorias button");
+
+    let generoSeleccionado = "Todos";
+
+    // Categorías de los libros existentes
+    const generosLibros = [
+        "Terror",
+        "Drama",
+        "Terror",
+        "Fantasía"
+    ];
+
+    // Buscar y filtrar libros
+    function filtrarLibros() {
+
+        const texto = buscador.value.toLowerCase().trim();
+
+        tarjetas.forEach((libro, indice) => {
+
+            const titulo = libro.querySelector("h3").textContent.toLowerCase();
+            const informacion = libro.textContent.toLowerCase();
+
+            const coincideTexto = informacion.includes(texto);
+
+            const coincideGenero =
+                generoSeleccionado === "Todos" ||
+                generosLibros[indice] === generoSeleccionado;
+
+            if (coincideTexto && coincideGenero) {
+                libro.style.display = "";
+            } else {
+                libro.style.display = "none";
+            }
+        });
+    }
+
+    // Buscar mientras se escribe
+    buscador.addEventListener("input", filtrarLibros);
+
+    // Evitar que el formulario recargue la página
+    const formularioBusqueda = buscador.closest("form");
+
+    if (formularioBusqueda) {
+        formularioBusqueda.addEventListener("submit", function(evento) {
+            evento.preventDefault();
+            filtrarLibros();
+        });
+    }
+
+    // Filtrar por género
+    botonesGeneros.forEach(boton => {
+
+        boton.addEventListener("click", function() {
+
+            const genero = boton.textContent.trim();
+
+            if (generoSeleccionado === genero) {
+                generoSeleccionado = "Todos";
+            } else {
+                generoSeleccionado = genero;
+            }
+
+            filtrarLibros();
+        });
+    });
+
+    // Agregar libros a la biblioteca
+    const botonesAgregar = document.querySelectorAll(".libros .libro button");
+
+    botonesAgregar.forEach((boton, indice) => {
+
+        boton.addEventListener("click", function() {
+
+            const tarjeta = boton.closest(".libro");
+
+            const libroNuevo = {
+                titulo: tarjeta.querySelector("h3").textContent,
+                autor: tarjeta.querySelectorAll("p")[0].textContent,
+                categoria: generosLibros[indice]
+            };
+
+            let biblioteca = JSON.parse(
+                localStorage.getItem("bibliotecaEntrePaginas") || "[]"
+            );
+
+            // Comprobar si el libro ya está agregado
+            const existe = biblioteca.some(libro =>
+                libro.titulo === libroNuevo.titulo
+            );
+
+            if (existe) {
+                alert("Este libro ya está en tu biblioteca.");
+                return;
+            }
+
+            biblioteca.push(libroNuevo);
+
+            localStorage.setItem(
+                "bibliotecaEntrePaginas",
+                JSON.stringify(biblioteca)
+            );
+
+            alert("¡Libro agregado a tu biblioteca!");
+        });
+    });
+}
