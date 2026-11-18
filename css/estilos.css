@@ -648,3 +648,136 @@ input:focus, textarea:focus, select:focus{
     color: #82977A;
     font-weight: bold;
 }
+
+/*CALENDARIO*/
+/* Calendario principal */
+.calendario-lectura{
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 35px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+/* Encabezado del calendario */
+.encabezado-calendario{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+.encabezado-calendario h3{
+    color: #594B43;
+    font-size: 20px;
+}
+.encabezado-calendario button{
+    background-color: #DDE5D8;
+}
+
+/* Días de la semana */
+.dias-semana,
+.dias-calendario{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    text-align: center;
+}
+.dias-semana{
+    margin-bottom: 12px;
+}
+.dias-semana div{
+    font-weight: bold;
+    color: #81746B;
+    padding: 10px 0;
+}
+
+/* Casillas de los días */
+.dia{
+    background-color: #F7F3EB;
+    padding: 15px 5px;
+    border-radius: 10px;
+    color: #594B43;
+    transition: 0.3s;
+}
+.dia:not(.vacio):hover{
+    background-color: #DDE5D8;
+}
+.dia.vacio{
+    background-color: transparent;
+}
+
+/* Actividades programadas */
+.actividades-lectura{
+    margin-bottom: 35px;
+}
+.actividad{
+    background-color: #FFFFFF;
+    padding: 22px;
+    border-radius: 15px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.actividad h3{
+    color: #594B43;
+    margin-bottom: 10px;
+}
+.actividad p{
+    color: #81746B;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+.actividad span{
+    color: #9B7074;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Retos de lectura */
+.retos-lectura{
+    margin-bottom: 35px;
+}
+.reto{
+    background-color: #FFFFFF;
+    padding: 22px;
+    border-radius: 15px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.reto h3{
+    color: #594B43;
+    margin-bottom: 10px;
+}
+.reto p{
+    color: #81746B;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.reto p:last-child{
+    color: #9B7074;
+    font-weight: bold;
+}
+
+/* Nueva actividad */
+.nueva-actividad{
+    background-color: #EBCFD0;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.nueva-actividad h2{
+    color: #594B43;
+    margin-bottom: 12px;
+}
+.nueva-actividad p{
+    color: #6F625A;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+.nueva-actividad button{
+    background-color: #594B43;
+    color: #FFFFFF;
+}
+.nueva-actividad button:hover{
+    background-color: #81746B;
+}
