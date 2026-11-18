@@ -384,7 +384,7 @@ if (document.getElementById("buscarLibro")) {
             );
 
             if (existe) {
-                alert("Este libro ya está en tu biblioteca.");
+                alert("Este libro ya está en tu biblioteca. ♡");
                 return;
             }
 
@@ -395,7 +395,141 @@ if (document.getElementById("buscarLibro")) {
                 JSON.stringify(biblioteca)
             );
 
-            alert("¡Libro agregado a tu biblioteca!");
+            alert("¡Libro agregado a tu biblioteca! ♡");
         });
     });
+}
+
+//BIBLIOTECA//
+
+if (document.querySelector(".resumen-biblioteca")) {
+
+    const seccionLeyendo = document.querySelector(".mis-lecturas .libros");
+    const seccionPendientes = document.querySelector(".libros-pendientes .libros");
+    const seccionLeidos = document.querySelector(".libros-leidos .libros");
+
+    // Obtener los libros guardados desde Explorar
+    let librosGuardados = [];
+
+    try {
+        librosGuardados = JSON.parse(
+            localStorage.getItem("bibliotecaEntrePaginas") || "[]"
+        );
+    } catch (error) {
+        librosGuardados = [];
+    }
+
+    // Mostrar los libros guardados
+    function mostrarBiblioteca() {
+
+        // Limpiar los libros agregados anteriormente
+        document.querySelectorAll("[data-libro-guardado]").forEach(libro => {
+            libro.remove();
+        });
+
+        let totalLeidos = 40;
+        let totalLeyendo = 1;
+        let totalPendientes = 8;
+
+        librosGuardados.forEach((libro, indice) => {
+
+            // Si no tiene estado, comienza como pendiente
+            if (!libro.estado) {
+                libro.estado = "Pendiente";
+            }
+
+            let destino;
+
+            if (libro.estado === "Leyendo") {
+                destino = seccionLeyendo;
+                totalLeyendo++;
+            } else if (libro.estado === "Leído") {
+                destino = seccionLeidos;
+                totalLeidos++;
+            } else {
+                destino = seccionPendientes;
+                totalPendientes++;
+            }
+
+            // Crear tarjeta del libro
+            const tarjeta = document.createElement("article");
+            tarjeta.className = "libro";
+            tarjeta.setAttribute("data-libro-guardado", "true");
+
+            const titulo = document.createElement("h3");
+            titulo.textContent = libro.titulo;
+
+            const autor = document.createElement("p");
+            autor.textContent = libro.autor || "Autor no especificado";
+
+            // Crear selector de estado
+            const selector = document.createElement("select");
+
+            const estados = ["Pendiente", "Leyendo", "Leído"];
+
+            estados.forEach(estado => {
+                const opcion = document.createElement("option");
+                opcion.value = estado;
+                opcion.textContent = estado;
+                selector.appendChild(opcion);
+            });
+
+            selector.value = libro.estado;
+
+            // Cambiar estado del libro
+            selector.addEventListener("change", function() {
+
+                libro.estado = selector.value;
+
+                localStorage.setItem(
+                    "bibliotecaEntrePaginas",
+                    JSON.stringify(librosGuardados)
+                );
+
+                mostrarBiblioteca();
+            });
+
+            // Botón para eliminar
+            const botonEliminar = document.createElement("button");
+            botonEliminar.type = "button";
+            botonEliminar.textContent = "Eliminar";
+
+            botonEliminar.addEventListener("click", function() {
+
+                librosGuardados.splice(indice, 1);
+
+                localStorage.setItem(
+                    "bibliotecaEntrePaginas",
+                    JSON.stringify(librosGuardados)
+                );
+
+                mostrarBiblioteca();
+            });
+
+            tarjeta.appendChild(titulo);
+            tarjeta.appendChild(autor);
+            tarjeta.appendChild(selector);
+            tarjeta.appendChild(botonEliminar);
+
+            destino.appendChild(tarjeta);
+        });
+
+        // Actualizar las estadísticas
+        const estadisticas = document.querySelectorAll(".estadistica h3");
+
+        if (estadisticas.length >= 3) {
+            estadisticas[0].textContent = totalLeidos;
+            estadisticas[1].textContent = totalLeyendo;
+            estadisticas[2].textContent = totalPendientes;
+        }
+
+        // Guardar los cambios
+        localStorage.setItem(
+            "bibliotecaEntrePaginas",
+            JSON.stringify(librosGuardados)
+        );
+    }
+
+    // Mostrar la biblioteca al entrar
+    mostrarBiblioteca();
 }
