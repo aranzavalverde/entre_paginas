@@ -1,0 +1,953 @@
+/*CONFIGURACIÓN GENERAL*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #F7F3EB;
+    color: #594B43;
+}
+
+/*Barra lateral*/
+.sidebar{
+    width: 250px;
+    height: 100vh;
+    background-color: #DDE5D8;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 30px 20px;
+}
+
+.logo h2{
+    font-size: 25px;
+    color: #594B43;
+    margin-bottom: 8px;
+}
+.logo p{
+    font-size: 13px;
+    color: #81746B;
+}
+
+.sidebar nav{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.sidebar nav a{
+    text-decoration: none;
+    color: #594B43;
+    padding: 13px 15px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+.sidebar nav a:hover{
+    background-color: #C8D5C2;
+}
+.sidebar nav a.activo{
+    background-color: #F7F3EB;
+    font-weight: bold;
+}
+
+/*Contenido principal*/
+.contenido{
+    margin-left: 250px;
+    padding: 30px;
+}
+
+/*Barra superior*/
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 18px 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 10px rgba(89, 75, 67, 0.06);
+}
+.usuario{
+    font-weight: bold;
+    color: #81746B;
+}
+
+/*Bienvenida*/
+.bienvenida{
+    margin-bottom: 30px;
+}
+.bienvenida h1{
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: #594B43;
+}
+.bienvenida p{
+    color: #81746B;
+    font-size: 16px;
+}
+
+/*Banner principal*/
+.banner{
+    background-color: #EBCFD0;
+    padding: 45px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+}
+.banner p{
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+.banner h2{
+    font-size: 29px;
+    margin-bottom: 15px;
+}
+.banner a{
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 20px;
+    background-color: #594B43;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+.banner a:hover{
+    background-color: #81746B;
+}
+
+/*Tarjetas y secciones*/
+section{
+    margin-bottom: 35px;
+}
+section h2{
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+
+.publicacion, .libro, .nota-card, .proposito-card, .funciones-lista article{
+    background-color: #FFFFFF;
+    padding: 22px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.publicacion h3, .nota-card h3{
+    margin-bottom: 10px;
+}
+.publicacion p, .nota-card p{
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+/*Botones*/
+button{
+    border: none;
+    padding: 10px 17px;
+    border-radius: 10px;
+    background-color: #DDE5D8;
+    color: #594B43;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button:hover{
+    background-color: #C8D5C2;
+}
+
+/*Libros y recomendaciones*/
+.libros{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+.libro h3{
+    margin-bottom: 10px;
+}
+
+/*Formularios*/
+input, textarea, select{
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #D8C5AC;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    color: #594B43;
+    font-family: inherit;
+    font-size: 14px;
+}
+textarea{
+    resize: vertical;
+    min-height: 110px;
+}
+input:focus, textarea:focus, select:focus{
+    outline: 2px solid #B7C8AE;
+}
+
+/*Diseño responsivo*/
+@media(max-width: 850px){
+    .sidebar{
+        width: 190px;
+        padding: 20px 12px;
+    }
+    .contenido{
+        margin-left: 190px;
+        padding: 20px;
+    }
+    .banner{
+        padding: 30px;
+    }
+}
+
+@media(max-width: 600px){
+    .sidebar{
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+    .sidebar nav{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .contenido{
+        margin-left: 0;
+        padding: 18px;
+    }
+    .topbar{
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .bienvenida h1{
+        font-size: 24px;
+    }
+}
+
+/*COMUNIDAD*/
+.crear-nota{
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.crear-nota h2{
+    margin-bottom: 10px;
+}
+.crear-nota p{
+    color: #81746B;
+    margin-bottom: 20px;
+}
+.crear-nota textarea{
+    min-height: 120px;
+    margin-bottom: 15px;
+}
+.nota-opciones{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+.nota-opciones span{
+    color: #81746B;
+    font-size: 13px;
+}
+.nota-opciones button{
+    background-color: #B7C8AE;
+}
+.nota-opciones button:hover{
+    background-color: #A3B99A;
+}
+.notas-comunidad{
+    margin-top: 35px;
+}
+.nota-card{
+    margin-bottom: 20px;
+}
+.nota-usuario{
+    margin-bottom: 15px;
+}
+.nota-usuario h3{
+    color: #594B43;
+}
+.nota-usuario span{
+    color: #A18F83;
+    font-size: 13px;
+}
+.nota-interaccion{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+.nota-interaccion a{
+    text-decoration: none;
+    color: #81746B;
+    font-size: 14px;
+}
+.nota-interaccion a:hover{
+    color: #B47F86;
+    text-decoration: underline;
+}
+
+/*EXPLORAR LIBROS*/
+/*Buscador*/
+.busqueda-libros{
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 30px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.busqueda-libros h2{
+    margin-bottom: 18px;
+}
+.busqueda-libros form{
+    display: flex;
+    gap: 12px;
+}
+.busqueda-libros input{
+    flex: 1;
+}
+.busqueda-libros button{
+    background-color: #B7C8AE;
+    white-space: nowrap;
+}
+
+/*Categorías*/
+.categorias{
+    margin-bottom: 35px;
+}
+.categorias h2{
+    margin-bottom: 18px;
+}
+.lista-categorias{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.lista-categorias button{
+    background-color: #EBCFD0;
+    padding: 12px 18px;
+    border-radius: 20px;
+}
+.lista-categorias button:hover{
+    background-color: #DDB9BC;
+}
+
+/*Libros recomendados*/
+.libros-destacados{
+    margin-bottom: 35px;
+}
+.libros-destacados h2{
+    margin-bottom: 18px;
+}
+.libros{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 22px;
+}
+.libro{
+    background-color: #FFFFFF;
+    padding: 22px;
+    border-radius: 17px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+    transition: 0.3s;
+}
+.libro:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 7px 16px rgba(89, 75, 67, 0.12);
+}
+.libro h3{
+    margin-bottom: 8px;
+    color: #594B43;
+}
+.libro p{
+    color: #81746B;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+.libro button{
+    width: 100%;
+    background-color: #DDE5D8;
+}
+
+/*INICIO*/
+/*Bienvenida*/
+.bienvenida{
+    padding: 10px 5px;
+    margin-bottom: 25px;
+}
+.bienvenida h1{
+    font-size: 32px;
+    margin-botton: 12px;
+    color: #594B43;
+}
+.bienvenida p{
+    color: #81746B;
+    font-size: 16px;
+}
+
+/*Banner principal*/
+.banner{
+    background: linear-gradient(120deg, #EBCFD0, #F2DFD9);
+    padding: 45px;
+    border-radius: 22px;
+    margin-bottom: 35px;
+    box-shadow: 0 4px 14px rgba(89, 75, 67, 0.07); 
+}
+.banner div{
+    max-width: 650px;
+}
+.banner div > p:first-child{
+    color: #81746B;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+.banner h2{
+    font-size: 30px;
+    color: #594B43;
+    margin-bottom: 15px;
+}
+.banner div > p:nth-of-type(2){
+    color: #6F625A;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+.banner a {
+    display: inline-block;
+    padding: 13px 22px;
+    background-color: #594B43;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: 0.3s;
+    }
+.banner a:hover{
+    background-color: #81746B;
+    transform: translateY(-2px);
+}
+
+/*Publicación de la comunidad*/
+.comunidad-inicio{
+    margin-bottom: 40px;
+}
+.comunidad-inicio h2{
+    margin-bottom: 18px;
+}
+.comunidad-inicio .publicacion:hover{
+    box-shadow: 0 6px 16px rgba(89, 75, 67, 0.10);
+}
+.comunidad-inicio .publicacion h3{
+    color: #594B43;
+    font-size: 19px;
+}
+.comunidad-inicio .publicacion p{
+    color: #81746B;
+    line-height: 1.6;
+}
+.comunidad-inicio .publicacion button:first-of-type {
+    background-color: #EBCFD0;
+}
+.comunidad-inicio .publicacion button:last-of-type{
+    background-color: #DDE5D8;
+}
+
+/*Recomendaciones*/
+.recomendaciones .libros{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 22px;
+}
+.recomendaciones .libro{
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 18px;
+    border-bottom: 4px solid #DDE5D8;
+    transition: 0.3s;
+}
+.recomendaciones .libro h3{
+    color: #594B43;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+.recomendaciones .libro p{
+    color: #81746B;
+    font-size: 14px;
+}
+
+/*Responsivo de inicio*/
+@media (max-width: 600px) {
+    .bienvenida h1 {
+        font-size: 25px;
+    }
+    .banner {
+        padding: 25px;
+    }
+    .banner h2 {
+        font-size: 24px;
+    }
+    .recomendaciones .libros {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*CLUBES*/
+/*Presentación de los clubes*/
+.presentacion-clubes {
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 35px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.presentacion-clubes h2{
+    color: #594B43;
+    margin-bottom: 12px;
+}
+.presentacion-clubes p{
+    color: #81746B;
+    line-height: 1.7;
+}
+/*Clubes disponibles*/
+.clubes-disponibles h2{
+    margin-bottom: 22px;
+}
+.lista-clubes{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+/*Tarjetas individuales*/
+.club {
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.club:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 7px 16px rgba(89, 75, 67, 0.12);
+}
+.club h3{
+    color: #594B43;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+/*Género literario*/
+.club .genero {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #F7E8E7;
+    color: #9B7074;
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/*Descripción del club*/
+.club p{
+    color: #81746B;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/*Cantidad de integrantes*/
+.club p:last-of-type{
+    color: #594B43;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+/*Botón para unirse*/
+.club button{
+    width: 100%;
+    background-color: #DDE5D8;
+    margin-top: 10px;
+}
+.club button:hover{
+    background-color: #B7C8AE;
+}
+
+/*Invitación final*/
+.invitacion-club {
+    background-color: #EBCFD0;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 40px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.invitacion-club h2{
+    color: #594B43;
+    margin-bottom: 12px;
+}
+.invitacion-club p{
+    color: #6F625A;
+    line-height: 1.7;
+}
+
+/*BIBLIOTECA*/
+/*Resumen de lecturas*/
+.resumen-biblioteca{
+    margin-bottom: 35px;
+}
+.resumen-biblioteca h2{
+    margin-bottom: 20px;
+}
+.estadisticas-libros{
+     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+.estadistica{
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 17px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+    
+}
+.estadistica h3{
+    font-size: 30px;
+    color: #9B7074;
+    margin-bottom: 8px;
+}
+.estadistica p{
+    color: #81746B;
+    font-size: 14px;
+}
+
+/*Secciones de libros*/
+.mis-lecturas, .libros-pendientes, .libros-leidos{
+    margin-bottom: 35px;
+}
+.mis-lecturas h2, .libros-pendientes h2, .libros-leidos h2{
+    color: #594B43;
+    margin-bottom: 20px;
+}
+
+/*Estado de los libros*/
+.mis-lecturas .libro p: :last-child{
+    color: #9B7074;
+    font-weight: bold;
+}
+.libros-pendientes .libro p:last-child{
+    color: #81746B;
+    font-weight: bold;
+}
+.libros-leidos .libro p:last-child{
+    color: #82977A;
+    font-weight: bold;
+}
+
+/*CALENDARIO*/
+/* Calendario principal */
+.calendario-lectura{
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 35px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+/* Encabezado del calendario */
+.encabezado-calendario{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+.encabezado-calendario h3{
+    color: #594B43;
+    font-size: 20px;
+}
+.encabezado-calendario button{
+    background-color: #DDE5D8;
+}
+
+/* Días de la semana */
+.dias-semana,
+.dias-calendario{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    text-align: center;
+}
+.dias-semana{
+    margin-bottom: 12px;
+}
+.dias-semana div{
+    font-weight: bold;
+    color: #81746B;
+    padding: 10px 0;
+}
+
+/* Casillas de los días */
+.dia{
+    background-color: #F7F3EB;
+    padding: 15px 5px;
+    border-radius: 10px;
+    color: #594B43;
+    transition: 0.3s;
+}
+.dia:not(.vacio):hover{
+    background-color: #DDE5D8;
+}
+.dia.vacio{
+    background-color: transparent;
+}
+
+/* Actividades programadas */
+.actividades-lectura{
+    margin-bottom: 35px;
+}
+.actividad{
+    background-color: #FFFFFF;
+    padding: 22px;
+    border-radius: 15px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.actividad h3{
+    color: #594B43;
+    margin-bottom: 10px;
+}
+.actividad p{
+    color: #81746B;
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+.actividad span{
+    color: #9B7074;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Retos de lectura */
+.retos-lectura{
+    margin-bottom: 35px;
+}
+.reto{
+    background-color: #FFFFFF;
+    padding: 22px;
+    border-radius: 15px;
+    margin-bottom: 18px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.reto h3{
+    color: #594B43;
+    margin-bottom: 10px;
+}
+.reto p{
+    color: #81746B;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.reto p:last-child{
+    color: #9B7074;
+    font-weight: bold;
+}
+
+/* Nueva actividad */
+.nueva-actividad{
+    background-color: #EBCFD0;
+    padding: 30px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.nueva-actividad h2{
+    color: #594B43;
+    margin-bottom: 12px;
+}
+.nueva-actividad p{
+    color: #6F625A;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+.nueva-actividad button{
+    background-color: #594B43;
+    color: #FFFFFF;
+}
+.nueva-actividad button:hover{
+    background-color: #81746B;
+}
+
+/*PERFIL*/
+/* Información principal del perfil */
+.perfil-principal{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+/* Fotografía de perfil */
+.foto-perfil img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #DDE5D8;
+}
+
+/* Datos del usuario */
+.informacion-perfil h1{
+    color: #594B43;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+.informacion-perfil p{
+    color: #81746B;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+.informacion-perfil p:first-of-type{
+    color: #9B7074;
+    font-weight: bold;
+}
+.informacion-perfil button{
+    margin-top: 8px;
+    background-color: #DDE5D8;
+}
+.informacion-perfil button:hover{
+    background-color: #B7C8AE;
+}
+
+/* Estadísticas del perfil */
+.estadisticas-perfil{
+    margin-bottom: 35px;
+}
+
+/* Géneros favoritos */
+.generos-favoritos{
+    margin-bottom: 35px;
+}
+.generos-favoritos .lista-categorias button{
+    background-color: #EBCFD0;
+    border-radius: 20px;
+}
+/* Libros favoritos */
+.favoritos-perfil{
+    margin-bottom: 35px;
+}
+.favoritos-perfil .libro{
+    border-bottom: 4px solid #DDE5D8;
+}
+
+/* Actividad reciente */
+.actividad-perfil{
+    margin-bottom: 35px;
+}
+.actividad-perfil .publicacion{
+    margin-bottom: 25px;
+}
+.actividad-perfil .publicacion h3{
+    color: #594B43;
+}
+.actividad-perfil .publicacion p{
+    color: #81746B;
+    line-height: 1.6;
+}
+.actividad-perfil .publicacion p:first-of-type{
+    font-size: 13px;
+    color: #A18F83;
+    margin-bottom: 12px;
+}
+
+/*ACERCA DE*/
+/* Nuestra historia */
+.acerca-historia{
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.acerca-historia h2{
+    color: #594B43;
+    margin-bottom: 18px;
+}
+.acerca-historia p{
+    color: #81746B;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Nuestro propósito */
+.acerca-proposito{
+    margin-bottom: 35px;
+}
+.proposito-contenedor{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+.proposito-card{
+    transition: 0.3s;
+}
+.proposito-card:hover{
+    box-shadow: 0 7px 16px rgba(89, 75, 67, 0.12);
+}
+.proposito-card h3{
+    color: #594B43;
+    margin-bottom: 12px;
+}
+.proposito-card p{
+    color: #81746B;
+    line-height: 1.6;
+}
+
+/* Funcionalidades */
+.acerca-funciones{
+    margin-bottom: 35px;
+}
+.funciones-lista{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+.funciones-lista article{
+    transition: 0.3s;
+}
+.funciones-lista article:hover{
+    box-shadow: 0 7px 16px rgba(89, 75, 67, 0.12);
+}
+.funciones-lista article h3{
+    color: #594B43;
+    margin-bottom: 10px;
+}
+.funciones-lista article p{
+    color: #81746B;
+    line-height: 1.6;
+}
+
+/* Frase final */
+.acerca-final{
+    background-color: #DDE5D8;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.acerca-final h2{
+    color: #594B43;
+    font-size: 22px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.acerca-final p{
+    color: #81746B;
+    font-weight: bold;
+}
