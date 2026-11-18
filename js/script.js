@@ -1,0 +1,289 @@
+//CALENDARIO//
+let mes = 10;
+let año = 2026;
+
+const nombresMeses = [
+    "Enero", "Febrero", "Marzo", "Abril",
+    "Mayo", "Junio", "Julio", "Agosto",
+    "Septiembre", "Octubre", "Noviembre", "Diciembre"
+];
+
+//Comprobar si estamos en la página del calendario//
+if (document.getElementById("mes-anterior")) {
+
+    function mostrarCalendario() {
+
+        document.getElementById("mes-actual").textContent =
+            nombresMeses[mes] + " " + año;
+
+        let dias = document.getElementById("dias-calendario");
+
+        dias.innerHTML = "";
+
+        let primerDia = new Date(año, mes, 1).getDay();
+        let cantidadDias = new Date(año, mes + 1, 0).getDate();
+
+        //Comenzar la semana el lunes//
+        if (primerDia == 0) {
+            primerDia = 7;
+        }
+
+        for (let i = 1; i < primerDia; i++) {
+            dias.innerHTML += '<div class="dia vacio"></div>';
+        }
+
+        for (let i = 1; i <= cantidadDias; i++) {
+
+            if (mes == 10 && (i == 18 || i == 21 || i == 25)) {
+                dias.innerHTML += '<div class="dia tiene-actividad" onclick="mostrarActividad(' + i + ')">' + i + '</div>';
+            } else {
+                dias.innerHTML += '<div class="dia">' + i + '</div>';
+            }
+        }
+    }
+
+    //Mes anterior//
+    document.getElementById("mes-anterior").addEventListener("click", function() {
+
+        mes--;
+
+        if (mes < 0) {
+            mes = 11;
+            año--;
+        }
+
+        mostrarCalendario();
+    });
+
+    // Mes siguiente
+    document.getElementById("mes-siguiente").addEventListener("click", function() {
+
+        mes++;
+
+        if (mes > 11) {
+            mes = 0;
+            año++;
+        }
+
+        mostrarCalendario();
+    });
+
+    mostrarCalendario();
+}
+
+//Detalles actividades//
+
+function mostrarActividad(dia) {
+
+    let detalle = document.getElementById("detalle-actividad");
+
+    if (detalle == null) {
+        return;
+    }
+
+    if (dia == 18) {
+        detalle.innerHTML = "<h3>18 de noviembre</h3><p>Leer 30 páginas de El brillo de las luciérnagas.</p><span>Sesión de lectura</span>";
+    }
+
+    if (dia == 21) {
+        detalle.innerHTML = "<h3>21 de noviembre</h3><p>Compartir mi opinión sobre mi lectura actual.</p><span>Actividad comunitaria</span>";
+    }
+
+    if (dia == 25) {
+        detalle.innerHTML = "<h3>25 de noviembre</h3><p>Comenzar un nuevo libro de mi lista de pendientes.</p><span>Meta personal</span>";
+    }
+}
+
+//Agregar actividad//
+
+function agregarActividad() {
+
+    let fecha = document.getElementById("fecha").value;
+    let actividad = document.getElementById("actividad").value;
+
+    if (fecha == "" || actividad == "") {
+        alert("Completa todos los campos.");
+    } else {
+        alert("¡Actividad agregada! ♡");
+    }
+}
+
+//Notas de la comunidad//
+
+// ==========================================
+// NOTAS DE LA COMUNIDAD - ENTREPÁGINAS
+// ==========================================
+
+if (document.getElementById("formularioNota")) {
+
+    const formulario = document.getElementById("formularioNota");
+    const campoTexto = document.getElementById("textoNota");
+    const campoNombre = document.getElementById("nombreUsuario");
+    const campoCategoria = document.getElementById("categoriaNota");
+    const filtroCategoria = document.getElementById("filtroCategoria");
+    const seccionNotas = document.querySelector(".notas-comunidad");
+
+    // Arreglo que almacena las notas
+    let notas = [];
+
+    // Obtener las notas que ya están escritas en el HTML
+    const notasExistentes = seccionNotas.querySelectorAll(".nota-card");
+
+    notasExistentes.forEach((tarjeta, indice) => {
+
+        const enlace = tarjeta.querySelector("a");
+
+        const categorias = [
+            "Recomendaciones",
+            "Misterio",
+            "Retos",
+            "Conversaciones"
+        ];
+
+        notas.push({
+            id: indice + 1,
+            usuario: tarjeta.querySelector("h3").textContent,
+            nombreUsuario: tarjeta.querySelector("span").textContent,
+            contenido: tarjeta.querySelector("p").textContent,
+            categoria: categorias[indice] || "Conversaciones",
+            likes: 0,
+            enlace: enlace ? enlace.getAttribute("href") : "",
+            textoEnlace: enlace ? enlace.textContent : ""
+        });
+    });
+
+    let siguienteId = notas.length + 1;
+
+    // Mostrar las notas en la página
+    function mostrarNotas() {
+
+        // Eliminar las tarjetas anteriores
+        seccionNotas.querySelectorAll(".nota-card").forEach(tarjeta => {
+            tarjeta.remove();
+        });
+
+        // Recorrer el arreglo
+        notas.forEach(nota => {
+
+            // Aplicar el filtro de categoría
+            if (
+                filtroCategoria &&
+                filtroCategoria.value !== "Todas" &&
+                filtroCategoria.value !== nota.categoria
+            ) {
+                return;
+            }
+
+            const tarjeta = document.createElement("article");
+            tarjeta.className = "nota-card";
+
+            const usuario = document.createElement("div");
+            usuario.className = "nota-usuario";
+
+            const nombre = document.createElement("h3");
+            nombre.textContent = nota.usuario;
+
+            const nombreUsuario = document.createElement("span");
+            nombreUsuario.textContent = nota.nombreUsuario;
+
+            usuario.appendChild(nombre);
+            usuario.appendChild(nombreUsuario);
+
+            const contenido = document.createElement("p");
+            contenido.textContent = nota.contenido;
+
+            const categoria = document.createElement("p");
+            categoria.textContent = "Categoría: " + nota.categoria;
+
+            const interaccion = document.createElement("div");
+            interaccion.className = "nota-interaccion";
+
+            // Botón de Me gusta
+            const botonLike = document.createElement("button");
+            botonLike.type = "button";
+            botonLike.textContent = "Me gusta (" + nota.likes + ")";
+
+            botonLike.addEventListener("click", function () {
+                nota.likes++;
+                mostrarNotas();
+            });
+
+            // Botón para eliminar
+            const botonEliminar = document.createElement("button");
+            botonEliminar.type = "button";
+            botonEliminar.textContent = "Eliminar";
+
+            botonEliminar.addEventListener("click", function () {
+                notas = notas.filter(n => n.id !== nota.id);
+                mostrarNotas();
+            });
+
+            interaccion.appendChild(botonLike);
+            interaccion.appendChild(botonEliminar);
+
+            // Conservar los enlaces de las notas originales
+            if (nota.enlace) {
+                const enlace = document.createElement("a");
+                enlace.href = nota.enlace;
+                enlace.textContent = nota.textoEnlace;
+                interaccion.appendChild(enlace);
+            }
+
+            tarjeta.appendChild(usuario);
+            tarjeta.appendChild(contenido);
+            tarjeta.appendChild(categoria);
+            tarjeta.appendChild(interaccion);
+
+            seccionNotas.appendChild(tarjeta);
+        });
+    }
+
+    // Publicar una nueva nota
+    formulario.addEventListener("submit", function (evento) {
+
+        evento.preventDefault();
+
+        const contenido = campoTexto.value.trim();
+
+        const usuario = campoNombre
+            ? campoNombre.value.trim()
+            : "Carla López";
+
+        const categoria = campoCategoria
+            ? campoCategoria.value
+            : "Conversaciones";
+
+        // Validar los campos
+        if (contenido === "" || usuario === "" || categoria === "") {
+            alert("Completa todos los campos antes de publicar.");
+            return;
+        }
+
+        // Agregar la nota al arreglo
+        notas.push({
+            id: siguienteId++,
+            usuario: usuario,
+            nombreUsuario: "@lector",
+            contenido: contenido,
+            categoria: categoria,
+            likes: 0,
+            enlace: "",
+            textoEnlace: ""
+        });
+
+        // Actualizar la página
+        mostrarNotas();
+
+        formulario.reset();
+
+        alert("¡Tu nota se publicó correctamente! ♡ ");
+    });
+
+    // Filtrar las notas por categoría
+    if (filtroCategoria) {
+        filtroCategoria.addEventListener("change", mostrarNotas);
+    }
+
+    // Mostrar las notas al entrar
+    mostrarNotas();
+}
