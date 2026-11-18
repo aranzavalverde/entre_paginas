@@ -620,3 +620,124 @@ if (document.querySelector(".clubes-disponibles")) {
     });
 }
 
+//PERFIL//
+if (document.querySelector(".perfil-principal")) {
+
+    const perfil = document.querySelector(".informacion-perfil");
+    const botonEditar = perfil.querySelector("button");
+
+    const nombrePerfil = perfil.querySelector("h1");
+    const datosPerfil = perfil.querySelectorAll("p");
+
+    const nombreUsuario = datosPerfil[0];
+    const descripcion = datosPerfil[1];
+
+    const nombreBarra = document.querySelector(".topbar .usuario span");
+
+    // Recuperar información guardada
+    let informacion = JSON.parse(
+        localStorage.getItem("perfilEntrePaginas") || "null"
+    );
+
+    // Mostrar información guardada
+    if (informacion) {
+        nombrePerfil.textContent = informacion.nombre;
+        nombreUsuario.textContent = informacion.usuario;
+        descripcion.textContent = informacion.descripcion;
+        nombreBarra.textContent = informacion.nombre;
+    }
+
+    // Editar perfil
+    botonEditar.addEventListener("click", function() {
+
+        // Evitar crear varios formularios
+        if (document.getElementById("formularioPerfil")) {
+            return;
+        }
+
+        const formulario = document.createElement("form");
+        formulario.id = "formularioPerfil";
+
+        // Campo del nombre
+        const campoNombre = document.createElement("input");
+        campoNombre.type = "text";
+        campoNombre.value = nombrePerfil.textContent;
+        campoNombre.placeholder = "Tu nombre";
+        campoNombre.required = true;
+
+        // Campo del usuario
+        const campoUsuario = document.createElement("input");
+        campoUsuario.type = "text";
+        campoUsuario.value = nombreUsuario.textContent.replace("@", "");
+        campoUsuario.placeholder = "Tu nombre de usuario";
+        campoUsuario.required = true;
+
+        // Campo de descripción
+        const campoDescripcion = document.createElement("textarea");
+        campoDescripcion.value = descripcion.textContent;
+        campoDescripcion.placeholder = "Escribe una descripción";
+        campoDescripcion.required = true;
+
+        // Botón guardar
+        const botonGuardar = document.createElement("button");
+        botonGuardar.type = "submit";
+        botonGuardar.textContent = "Guardar cambios";
+
+        // Botón cancelar
+        const botonCancelar = document.createElement("button");
+        botonCancelar.type = "button";
+        botonCancelar.textContent = "Cancelar";
+
+        formulario.appendChild(campoNombre);
+        formulario.appendChild(campoUsuario);
+        formulario.appendChild(campoDescripcion);
+        formulario.appendChild(botonGuardar);
+        formulario.appendChild(botonCancelar);
+
+        perfil.appendChild(formulario);
+
+        // Guardar los cambios
+        formulario.addEventListener("submit", function(evento) {
+
+            evento.preventDefault();
+
+            const nombre = campoNombre.value.trim();
+            const usuario = campoUsuario.value.trim();
+            const texto = campoDescripcion.value.trim();
+
+            if (nombre === "" || usuario === "" || texto === "") {
+                alert("Completa todos los campos.");
+                return;
+            }
+
+            informacion = {
+                nombre: nombre,
+                usuario: "@" + usuario.replace(/^@+/, ""),
+                descripcion: texto
+            };
+
+            // Actualizar la información del perfil
+            nombrePerfil.textContent = informacion.nombre;
+            nombreUsuario.textContent = informacion.usuario;
+            descripcion.textContent = informacion.descripcion;
+            nombreBarra.textContent = informacion.nombre;
+
+            // Guardar en el navegador
+            localStorage.setItem(
+                "perfilEntrePaginas",
+                JSON.stringify(informacion)
+            );
+
+            formulario.remove();
+
+            alert("¡Tu perfil se actualizó correctamente! ♡ " );
+        });
+
+        // Cancelar edición
+        botonCancelar.addEventListener("click", function() {
+            formulario.remove();
+        });
+    });
+}
+
+
