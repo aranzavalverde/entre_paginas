@@ -533,3 +533,90 @@ if (document.querySelector(".resumen-biblioteca")) {
     // Mostrar la biblioteca al entrar
     mostrarBiblioteca();
 }
+
+//CLUBES DE LECTURA//
+if (document.querySelector(".clubes-disponibles")) {
+
+    const clubes = document.querySelectorAll(".lista-clubes .club");
+
+    // Recuperar los clubes a los que el usuario pertenece
+    let misClubes = [];
+
+    try {
+        misClubes = JSON.parse(
+            localStorage.getItem("misClubesEntrePaginas") || "[]"
+        );
+    } catch (error) {
+        misClubes = [];
+    }
+
+    // Configurar cada club
+    clubes.forEach(club => {
+
+        const nombre = club.querySelector("h3").textContent.trim();
+        const parrafos = club.querySelectorAll("p");
+
+        // Obtener el número inicial de integrantes
+        const parrafoIntegrantes = Array.from(parrafos).find(p =>
+            p.textContent.includes("Integrantes:")
+        );
+
+        const cantidadInicial = parseInt(
+            parrafoIntegrantes.textContent.replace(/\D/g, "")
+        );
+
+        const boton = club.querySelector("button");
+
+        boton.type = "button";
+
+        // Actualizar la información del club
+        function actualizarClub() {
+
+            const pertenece = misClubes.includes(nombre);
+
+            const cantidad = pertenece
+                ? cantidadInicial + 1
+                : cantidadInicial;
+
+            parrafoIntegrantes.textContent =
+                "Integrantes: " + cantidad;
+
+            boton.textContent = pertenece
+                ? "Abandonar club"
+                : "Unirme al club";
+        }
+
+        // Unirse o abandonar el club
+        boton.addEventListener("click", function() {
+
+            if (misClubes.includes(nombre)) {
+
+                // Eliminar el club de la lista personal
+                misClubes = misClubes.filter(clubNombre =>
+                    clubNombre !== nombre
+                );
+
+                alert("Has abandonado el club " + nombre + "." + " ♡ ");
+
+            } else {
+
+                // Agregar el club a la lista personal
+                misClubes.push(nombre);
+
+                alert("¡Te has unido al club " + nombre + "!" + " ♡ ");
+            }
+
+            // Guardar los cambios
+            localStorage.setItem(
+                "misClubesEntrePaginas",
+                JSON.stringify(misClubes)
+            );
+
+            actualizarClub();
+        });
+
+        // Mostrar el estado inicial
+        actualizarClub();
+    });
+}
+
