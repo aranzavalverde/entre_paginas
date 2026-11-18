@@ -446,6 +446,9 @@ input:focus, textarea:focus, select:focus{
     color: #81746B;
     line-height: 1.6;
 }
+.comunidad-inicio .publicacion button:first-of-type {
+    background-color: #EBCFD0;
+}
 .comunidad-inicio .publicacion button:last-of-type{
     background-color: #DDE5D8;
 }
@@ -487,4 +490,107 @@ input:focus, textarea:focus, select:focus{
     .recomendaciones .libros {
         grid-template-columns: 1fr;
     }
+}
+
+/*Clubes de lectura*/
+/*Presentación de los clubes*/
+.presentacion-clubes {
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 35px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.presentacion-clubes h2{
+    color: #594B43;
+    margin-bottom: 12px;
+}
+.presentacion-clubes p{
+    color: #81746B;
+    line-height: 1.7;
+}
+/*Clubes disponibles*/
+.clubes-disponibles h2{
+    margin-bottom: 22px;
+}
+.lista-clubes{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+/*Tarjetas individuales*/
+.club {
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+.club:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 7px 16px rgba(89, 75, 67, 0.12);
+}
+.club h3{
+    color: #594B43;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+/*Género literario*/
+.club .genero {
+    display: inline-block;
+    align-self: flex-start;
+    background-color: #F7E8E7;
+    color: #9B7074;
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/*Descripción del club*/
+.club p{
+    color: #81746B;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/*Cantidad de integrantes*/
+.club p:last-of-type{
+    color: #594B43;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+/*Botón para unirse*/
+.club button{
+    width: 100%;
+    background-color: #DDE5D8;
+    margin-top: 10px;
+}
+.club button:hover{
+    background-color: #B7C8AE;
+}
+
+/*Invitación final*/
+.invitacion-club {
+    background-color: #EBCFD0;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 40px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.invitacion-club h2{
+    color: #594B43;
+    margin-bottom: 12px;
+}
+.invitacion-club p{
+    color: #6F625A;
+    line-height: 1.7;
 }
