@@ -492,7 +492,7 @@ input:focus, textarea:focus, select:focus{
     }
 }
 
-/*Clubes de lectura*/
+/*CLUBES*/
 /*Presentación de los clubes*/
 .presentacion-clubes {
     background-color: #FFFFFF;
@@ -593,4 +593,58 @@ input:focus, textarea:focus, select:focus{
 .invitacion-club p{
     color: #6F625A;
     line-height: 1.7;
+}
+
+/*BIBLIOTECA*/
+/*Resumen de lecturas*/
+.resumen-biblioteca{
+    margin-bottom: 35px;
+}
+.resumen-biblioteca h2{
+    margin-bottom: 20px;
+}
+.estadisticas-libros{
+     display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+.estadistica{
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 17px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+    
+}
+.estadistica h3{
+    font-size: 30px;
+    color: #9B7074;
+    margin-bottom: 8px;
+}
+.estadistica p{
+    color: #81746B;
+    font-size: 14px;
+}
+
+/*Secciones de libros*/
+.mis-lecturas, .libros-pendientes, .libros-leidos{
+    margin-bottom: 35px;
+}
+.mis-lecturas h2, .libros-pendientes h2, .libros-leidos h2{
+    color: #594B43;
+    margin-bottom: 20px;
+}
+
+/*Estado de los libros*/
+.mis-lecturas .libro p: :last-child{
+    color: #9B7074;
+    font-weight: bold;
+}
+.libros-pendientes .libro p:last-child{
+    color: #81746B;
+    font-weight: bold;
+}
+.libros-leidos .libro p:last-child{
+    color: #82977A;
+    font-weight: bold;
 }
