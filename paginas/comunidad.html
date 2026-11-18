@@ -48,6 +48,20 @@
             <p>Comparte una idea, una recomendación o algo que quieras conversar.</p>
 
             <form id="formularioNota">
+                <input
+                    type="text"
+                    id="nombreUsuario"
+                     placeholder="Tu nombre"
+                     value="Carla López"
+                     required>
+
+<select id="categoriaNota" required>
+    <option value="">Selecciona una categoría</option>
+    <option value="Recomendaciones">Recomendaciones</option>
+    <option value="Misterio">Misterio</option>
+    <option value="Retos">Retos de lectura</option>
+    <option value="Conversaciones">Conversaciones</option>
+</select>
                 <textarea
                 id="textoNota"
                 name="textoNota"
@@ -66,6 +80,13 @@
         <!--Notas de otros lectores-->
         <section class="notas-comunidad">
             <h2>Lo que comparte la comunidad</h2>
+            <select id="filtroCategoria">
+    <option value="Todas">Todas las categorías</option>
+    <option value="Recomendaciones">Recomendaciones</option>
+    <option value="Misterio">Misterio</option>
+    <option value="Retos">Retos de lectura</option>
+    <option value="Conversaciones">Conversaciones</option>
+</select>
             <article class="nota-card">
                 <div class="nota-usuario">
                     <h3>Kamila Iturralde</h3>

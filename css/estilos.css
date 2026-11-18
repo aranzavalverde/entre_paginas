@@ -951,3 +951,10 @@ input:focus, textarea:focus, select:focus{
     color: #81746B;
     font-weight: bold;
 }
+
+.dia.tiene-actividad {
+    background-color: #EBCFD0;
+    color: #594B43;
+    font-weight: bold;
+    border: 2px solid #9B7074;
+}

@@ -46,9 +46,9 @@
         <section class="calendario-lectura">
             <h2>Mi calendario</h2>
             <div class="encabezado-calendario">
-                <button type="button">Anterior</button>
-                <h3>Noviembre 2026</h3>
-                <button type="button">Siguiente</button>
+                <button type="button" id="mes-anterior">Anterior</button>
+                <h3 id="mes-actual">Noviembre 2026</h3>
+                <button type="button" id="mes-siguiente">Siguiente</button>
             </div>
 
             <div class="dias-semana">
@@ -61,7 +61,7 @@
                 <div>Dom</div>
             </div>
 
-            <div class="dias-calendario">
+            <div class="dias-calendario" id="dias-calendario">
                 <div class="dia vacio"></div>
                 <div class="dia vacio"></div>
 
@@ -144,9 +144,16 @@
 
         <!--Crear actividad-->
         <section class="nueva-actividad">
-            <h2>Planea tu próxima lectura</h2>
-             <p>Organiza tus sesiones, establece nuevas metas y guarda un espacio para tus libros favoritos.</p>
-             <button type="button">Agregar actividad</button>
+           <h2>Planea tu próxima lectura</h2>
+
+    <p>Organiza tus sesiones, establece nuevas metas y guarda un espacio para tus libros favoritos.</p>
+
+    <input type="date" id="fecha">
+    <input type="text" id="actividad" placeholder="Escribe tu actividad">
+
+    <button type="button" onclick="agregarActividad()">
+        Agregar actividad
+    </button>
         </section>
     </main>
 
