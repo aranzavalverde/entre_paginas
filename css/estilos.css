@@ -781,3 +781,88 @@ input:focus, textarea:focus, select:focus{
 .nueva-actividad button:hover{
     background-color: #81746B;
 }
+
+/*PERFIL*/
+/* Información principal del perfil */
+.perfil-principal{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+/* Fotografía de perfil */
+.foto-perfil img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #DDE5D8;
+}
+
+/* Datos del usuario */
+.informacion-perfil h1{
+    color: #594B43;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+.informacion-perfil p{
+    color: #81746B;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+.informacion-perfil p:first-of-type{
+    color: #9B7074;
+    font-weight: bold;
+}
+.informacion-perfil button{
+    margin-top: 8px;
+    background-color: #DDE5D8;
+}
+.informacion-perfil button:hover{
+    background-color: #B7C8AE;
+}
+
+/* Estadísticas del perfil */
+.estadisticas-perfil{
+    margin-bottom: 35px;
+}
+
+/* Géneros favoritos */
+.generos-favoritos{
+    margin-bottom: 35px;
+}
+.generos-favoritos .lista-categorias button{
+    background-color: #EBCFD0;
+    border-radius: 20px;
+}
+/* Libros favoritos */
+.favoritos-perfil{
+    margin-bottom: 35px;
+}
+.favoritos-perfil .libro{
+    border-bottom: 4px solid #DDE5D8;
+}
+
+/* Actividad reciente */
+.actividad-perfil{
+    margin-bottom: 35px;
+}
+.actividad-perfil .publicacion{
+    margin-bottom: 25px;
+}
+.actividad-perfil .publicacion h3{
+    color: #594B43;
+}
+.actividad-perfil .publicacion p{
+    color: #81746B;
+    line-height: 1.6;
+}
+.actividad-perfil .publicacion p:first-of-type{
+    font-size: 13px;
+    color: #A18F83;
+    margin-bottom: 12px;
+}
