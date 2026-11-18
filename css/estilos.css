@@ -866,3 +866,88 @@ input:focus, textarea:focus, select:focus{
     color: #A18F83;
     margin-bottom: 12px;
 }
+
+/*ACERCA DE*/
+/* Nuestra historia */
+.acerca-historia{
+    background-color: #FFFFFF;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.acerca-historia h2{
+    color: #594B43;
+    margin-bottom: 18px;
+}
+.acerca-historia p{
+    color: #81746B;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Nuestro propósito */
+.acerca-proposito{
+    margin-bottom: 35px;
+}
+.proposito-contenedor{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+}
+.proposito-card{
+    transition: 0.3s;
+}
+.proposito-card:hover{
+    box-shadow: 0 7px 16px rgba(89, 75, 67, 0.12);
+}
+.proposito-card h3{
+    color: #594B43;
+    margin-bottom: 12px;
+}
+.proposito-card p{
+    color: #81746B;
+    line-height: 1.6;
+}
+
+/* Funcionalidades */
+.acerca-funciones{
+    margin-bottom: 35px;
+}
+.funciones-lista{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+.funciones-lista article{
+    transition: 0.3s;
+}
+.funciones-lista article:hover{
+    box-shadow: 0 7px 16px rgba(89, 75, 67, 0.12);
+}
+.funciones-lista article h3{
+    color: #594B43;
+    margin-bottom: 10px;
+}
+.funciones-lista article p{
+    color: #81746B;
+    line-height: 1.6;
+}
+
+/* Frase final */
+.acerca-final{
+    background-color: #DDE5D8;
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(89, 75, 67, 0.06);
+}
+.acerca-final h2{
+    color: #594B43;
+    font-size: 22px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+.acerca-final p{
+    color: #81746B;
+    font-weight: bold;
+}
